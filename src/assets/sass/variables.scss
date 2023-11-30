@@ -15,4 +15,15 @@ $font: 'League Spartan', sans-serif;
   --white: #f8f8fb;
   --red: #ec5757;
   --lightRed: #ff9797;
+  --dividerColor: #494e6e;
+  --bodyBackground: var(--white);
+  --textColor: var(--black);
+  --sidebar-bg: var(--veryDarkBlue);
+  --theme-switcher: url('/assets/icon-moon.svg');
+}
+
+.dark {
+  --bodyBackground: var(--lightBlack);
+  --textColor: var(--white);
+  --theme-switcher: url('/assets/icon-sun.svg');
 }

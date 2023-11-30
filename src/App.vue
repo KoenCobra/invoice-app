@@ -1,6 +1,16 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Sidebar from './components/sidebar/Sidebar.vue'
+</script>
 
 <template>
-  <div>test</div>
+  <main>
+    <Sidebar />
+    <RouterView />
+  </main>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+</style>
