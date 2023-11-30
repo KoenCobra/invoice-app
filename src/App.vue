@@ -1,5 +1,6 @@
 <script lang="ts" setup></script>
 
-<template></template>
-
+<template>
+  <div>test</div>
+</template>
 <style lang="scss" scoped></style>
