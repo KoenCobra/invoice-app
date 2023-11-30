@@ -2,15 +2,17 @@
 
 $font: 'League Spartan', sans-serif;
 
-$mainPurple: #7c5dfa;
-$lightPurple: #9277ff;
-$veryDarkBlue: #1e2139;
-$darkGrayishBlue: #252945;
-$grayishBlue: #7e88c3;
-$lightGrayishBlue: #dfe3fa;
-$gray: #888eb0;
-$black: #0c0e16;
-$lightBlack: #141625;
-$white: #f8f8fb;
-$red: #ec5757;
-$lightRed: #ff9797;
+:root {
+  --mainPurple: #7c5dfa;
+  --lightPurple: #9277ff;
+  --veryDarkBlue: #1e2139;
+  --darkGrayishBlue: #252945;
+  --grayishBlue: #7e88c3;
+  --lightGrayishBlue: #dfe3fa;
+  --gray: #888eb0;
+  --black: #0c0e16;
+  --lightBlack: #141625;
+  --white: #f8f8fb;
+  --red: #ec5757;
+  --lightRed: #ff9797;
+}
