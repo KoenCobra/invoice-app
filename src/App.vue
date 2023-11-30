@@ -5,12 +5,20 @@ import Sidebar from './components/sidebar/Sidebar.vue'
 <template>
   <main>
     <Sidebar />
-    <RouterView />
+    <div class="page">
+      <RouterView />
+    </div>
   </main>
 </template>
 <style lang="scss" scoped>
 main {
   display: grid;
   grid-template-columns: auto 1fr;
+
+  .page {
+    height: 100vh;
+    height: 100svh;
+    overflow-y: auto;
+  }
 }
 </style>

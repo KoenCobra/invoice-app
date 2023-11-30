@@ -20,7 +20,7 @@ import Divider from './Divider.vue'
 @import '../../assets/sass/variables.scss';
 .sidebar {
   background-color: var(--sidebar-bg);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

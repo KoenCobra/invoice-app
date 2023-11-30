@@ -52,7 +52,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: $font;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: var(--bodyBackground);
 }
 
