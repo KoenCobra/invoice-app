@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-const body = document.querySelector('body')
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
+const { toggleTheme } = themeStore
 </script>
 
 <template>
-  <button @click="body?.classList.toggle('dark')">
+  <button @click="toggleTheme">
     <div class="theme-switcher"></div>
   </button>
 </template>
