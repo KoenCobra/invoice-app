@@ -10,7 +10,7 @@ import AppButton from '../AppButton.vue'
     </div>
     <div class="filter-dropdown"></div>
     <div class="new-invoice">
-      <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
+      <AppButton cssClass="red" text="New Invoice" :isIcon="false" />
     </div>
   </div>
 </template>
