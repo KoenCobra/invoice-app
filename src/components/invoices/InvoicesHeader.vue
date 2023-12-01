@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import AppButton from '../AppButton.vue'
+import FilterDropdown from '../FilterDropdown.vue'
 </script>
 
 <template>
@@ -8,7 +9,9 @@ import AppButton from '../AppButton.vue'
       <h1>Invoices</h1>
       <p>There are """0""" total invoices</p>
     </div>
-    <div class="filter-dropdown">test dropdown</div>
+    <div class="filter-dropdown">
+      <FilterDropdown />
+    </div>
     <div class="new-invoice">
       <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
     </div>
@@ -23,10 +26,12 @@ import AppButton from '../AppButton.vue'
   width: 46rem;
   display: grid;
   grid-template-columns: 1fr auto auto;
+  gap: 2rem;
   align-items: center;
 
   h1 {
     @include headingLarge;
+    color: var(--textColor);
   }
 
   p {

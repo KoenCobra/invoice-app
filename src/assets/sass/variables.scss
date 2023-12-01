@@ -20,10 +20,30 @@ $font: 'League Spartan', sans-serif;
   --textColor: var(--black);
   --sidebar-bg: var(--veryDarkBlue);
   --theme-switcher: url('/assets/icon-moon.svg');
+  --background: var(--white);
+}
+
+.p-checkbox .p-checkbox-box {
+  background: #dfe3fa !important;
+  border: 0 !important;
+
+  &.p-highlight {
+    background: var(--mainPurple) !important;
+  }
 }
 
 .dark {
   --bodyBackground: var(--lightBlack);
+  --background: var(--darkGrayishBlue);
   --textColor: var(--white);
   --theme-switcher: url('/assets/icon-sun.svg');
+
+  .p-checkbox .p-checkbox-box {
+    background: var(--lightBlack) !important;
+    border: 0;
+
+    &.p-highlight {
+      background: var(--mainPurple) !important;
+    }
+  }
 }
