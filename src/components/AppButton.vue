@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import Button from 'primevue/button'
 
 const props = defineProps({
   text: {
@@ -13,34 +13,10 @@ const props = defineProps({
     default: false
   }
 })
-
-const ripples = ref([] as any)
-const tiBtn = ref()
-
-const animateRipple = (e: any) => {
-  let el = tiBtn.value
-  let pos = el.getBoundingClientRect()
-
-  ripples.value?.push({
-    x: e.clientX - pos.left,
-    y: e.clientY - pos.top,
-    show: true
-  })
-}
-const rippleEnd = (i: any) => {
-  ripples.value[i].show = false
-}
-
-const filteredRipples = computed(() => {
-  if (!ripples.value) {
-    return
-  }
-  return ripples.value.filter((val: any) => val.show === true)
-})
 </script>
 
 <template>
-  <button class="ti-btn" ref="tiBtn" :class="props.cssClass" @click="animateRipple">
+  <Button :class="props.cssClass" class="app-btn">
     <div v-if="props.isIcon" class="plus-icon">
       <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -53,27 +29,13 @@ const filteredRipples = computed(() => {
     <p>
       {{ props.text }}
     </p>
-    <transition-group>
-      <span
-        class="ripple"
-        v-bind:ref="'ripple-' + i"
-        v-bind:key="'ripple' + i"
-        v-for="(val, i) in filteredRipples"
-        v-bind:style="{ top: val.y + 'px', left: val.x + 'px' }"
-        :animationend="rippleEnd(i)"
-      >
-      </span>
-    </transition-group>
-  </button>
+  </Button>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
 @import '../assets/sass/mixins.scss';
-.ti-btn {
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
+.app-btn {
   border-radius: 100vh;
   padding: 0.8rem 1.5rem;
   display: flex;
@@ -97,45 +59,10 @@ const filteredRipples = computed(() => {
     background-color: var(--white);
     border-radius: 50%;
     display: grid;
-    place-items: center;
+    place-content: center;
     width: 32px;
     height: 32px;
     margin: -1rem 0 -1rem -1rem;
-  }
-
-  .ripple {
-    background-color: darkgray;
-    width: 1rem;
-    height: 1rem;
-    position: absolute;
-    border-radius: 50%;
-    transform: translateX(-100%) translateY(-100%);
-    mix-blend-mode: screen;
-    animation:
-      ripple 1000ms ease-out forwards,
-      fade 500ms ease-out forwards;
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: translate(-100%, -100%);
-    }
-    80% {
-      transform: translate(-100%, -100%) scale(20);
-    }
-    100% {
-      transform: translate(-100%, -100%) scale(20);
-      opacity: 0;
-    }
-  }
-
-  @keyframes fade {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
   }
 }
 </style>
