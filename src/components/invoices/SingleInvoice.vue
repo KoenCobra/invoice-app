@@ -33,7 +33,7 @@ const formatDueDate = (dateString: string) => {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
-  padding: 1.8rem 2rem;
+  padding: 1rem 2rem;
   align-items: center;
   gap: 1rem;
   background-color: var(--background);
