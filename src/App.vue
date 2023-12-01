@@ -1,5 +1,13 @@
 <script lang="ts" setup>
+import { onMounted } from 'vue'
 import Sidebar from './components/sidebar/Sidebar.vue'
+import { useInvoiceStore } from './stores/invoice'
+
+const invoiceStore = useInvoiceStore()
+
+onMounted(async () => {
+  await invoiceStore.getInvoices()
+})
 </script>
 
 <template>
