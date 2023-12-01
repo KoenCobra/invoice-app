@@ -23,6 +23,7 @@ import AppButton from '../AppButton.vue'
   width: 46rem;
   display: grid;
   grid-template-columns: 1fr auto auto;
+  align-items: center;
 
   h1 {
     @include headingLarge;
