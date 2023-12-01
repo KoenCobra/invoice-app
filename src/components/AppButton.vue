@@ -40,8 +40,8 @@ const filteredRipples = computed(() => {
 </script>
 
 <template>
-  <button class="ti-btn" ref="tiBtn" :class="cssClass" @click="animateRipple">
-    <div v-if="isIcon" class="plus-icon">
+  <button class="ti-btn" ref="tiBtn" :class="props.cssClass" @click="animateRipple">
+    <div v-if="props.isIcon" class="plus-icon">
       <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z"
@@ -51,7 +51,7 @@ const filteredRipples = computed(() => {
       </svg>
     </div>
     <p>
-      {{ text }}
+      {{ props.text }}
     </p>
     <transition-group>
       <span
