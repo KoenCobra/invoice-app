@@ -5,15 +5,22 @@ import { onMounted, onUnmounted, ref } from 'vue'
 const status = ref()
 const isDropdownVisible = ref(false)
 const dropdownToggleBtn = ref()
-
-const showDropdown = (event: any) => {
-  console.log(event.target)
-
-  isDropdownVisible.value = !isDropdownVisible.value
-}
+const dropdown = ref()
 
 const handleClickOutside = (event: any) => {
-  if (dropdownToggleBtn.value && !dropdownToggleBtn.value.contains(event.target)) {
+  if (
+    dropdown.value.contains(event.target) ||
+    event.target.tagName === 'svg' ||
+    event.target.tagName === 'path'
+  ) {
+    isDropdownVisible.value = true
+    return
+  }
+  if (
+    dropdownToggleBtn.value &&
+    !dropdownToggleBtn.value.contains(event.target) &&
+    isDropdownVisible.value
+  ) {
     isDropdownVisible.value = false
   }
 }
@@ -29,12 +36,12 @@ onUnmounted(() => {
 
 <template>
   <div class="filter-drowndown">
-    <button @click="showDropdown" ref="dropdownToggleBtn">
+    <button @click="isDropdownVisible = !isDropdownVisible" ref="dropdownToggleBtn">
       <p>Filter by status</p>
       <img src="/assets/icon-arrow-down.svg" alt="" />
     </button>
 
-    <div :class="{ show: isDropdownVisible }" class="dropdown">
+    <div :class="{ show: isDropdownVisible }" ref="dropdown" class="dropdown">
       <div class="dropdown-item">
         <Checkbox v-model="status" name="status" value="Draft" />
         <label> Draft </label>
