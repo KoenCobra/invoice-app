@@ -42,17 +42,9 @@ onUnmounted(() => {
     </button>
 
     <div :class="{ show: isDropdownVisible }" ref="dropdown" class="dropdown">
-      <div class="dropdown-item">
-        <Checkbox v-model="status" name="status" value="Draft" />
-        <label> Draft </label>
-      </div>
-      <div class="dropdown-item">
-        <Checkbox v-model="status" name="status" value="Pending" />
-        <label> Pending </label>
-      </div>
-      <div class="dropdown-item">
-        <Checkbox v-model="status" name="status" value="Paid" />
-        <label> Paid </label>
+      <div class="dropdown-item" v-for="(item, index) in ['Draft', 'Pending', 'Paid']" :key="index">
+        <Checkbox v-model="status" :id="'status-' + item" :name="item" :value="item" />
+        <label :for="'status-' + item">{{ item }}</label>
       </div>
     </div>
   </div>
