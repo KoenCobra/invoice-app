@@ -1,13 +1,17 @@
 <script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
 import AppButton from '../AppButton.vue'
 import FilterDropdown from '../FilterDropdown.vue'
+
+const invoiceStore = useInvoiceStore()
+const { invoices } = invoiceStore
 </script>
 
 <template>
   <div class="invoices-header">
     <div class="title">
       <h1>Invoices</h1>
-      <p>There are """0""" total invoices</p>
+      <p>There are {{ invoices.length }} total invoices</p>
     </div>
     <div class="filter-dropdown">
       <FilterDropdown />
