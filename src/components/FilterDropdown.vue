@@ -1,17 +1,40 @@
 <script lang="ts" setup>
 import Checkbox from 'primevue/checkbox'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+
 const status = ref()
+const isDropdownVisible = ref(false)
+const dropdownToggleBtn = ref()
+
+const showDropdown = (event: any) => {
+  console.log(event.target)
+
+  isDropdownVisible.value = !isDropdownVisible.value
+}
+
+const handleClickOutside = (event: any) => {
+  if (dropdownToggleBtn.value && !dropdownToggleBtn.value.contains(event.target)) {
+    isDropdownVisible.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <div class="filter-drowndown">
-    <button>
+    <button @click="showDropdown" ref="dropdownToggleBtn">
       <p>Filter by status</p>
       <img src="/assets/icon-arrow-down.svg" alt="" />
     </button>
 
-    <div class="dropdown">
+    <div :class="{ show: isDropdownVisible }" class="dropdown">
       <div class="dropdown-item">
         <Checkbox v-model="status" name="status" value="Draft" />
         <label> Draft </label>
@@ -55,6 +78,13 @@ const status = ref()
     box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
     display: grid;
     gap: 0.5rem;
+    transform: scale(0);
+    transition: all 0.2s ease-in;
+    transform-origin: top;
+
+    &.show {
+      transform: scale(1);
+    }
 
     .dropdown-item {
       display: flex;

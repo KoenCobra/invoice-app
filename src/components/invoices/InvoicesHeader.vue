@@ -12,9 +12,7 @@ import FilterDropdown from '../FilterDropdown.vue'
     <div class="filter-dropdown">
       <FilterDropdown />
     </div>
-    <div class="new-invoice">
-      <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
-    </div>
+    <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
   </div>
 </template>
 
