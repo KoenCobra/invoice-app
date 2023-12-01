@@ -8,11 +8,29 @@ import AppButton from '../AppButton.vue'
       <h1>Invoices</h1>
       <p>There are """0""" total invoices</p>
     </div>
-    <div class="filter-dropdown"></div>
+    <div class="filter-dropdown">test dropdown</div>
     <div class="new-invoice">
       <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../../assets/sass/variables.scss';
+@import '../../assets/sass/mixins.scss';
+
+.invoices-header {
+  width: 46rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+
+  h1 {
+    @include headingLarge;
+  }
+
+  p {
+    @include bodyVariant;
+    color: var(--gray);
+  }
+}
+</style>

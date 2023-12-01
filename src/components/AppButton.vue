@@ -69,6 +69,7 @@ const filteredRipples = computed(() => {
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
+@import '../assets/sass/mixins.scss';
 .ti-btn {
   overflow: hidden;
   position: relative;
@@ -81,9 +82,7 @@ const filteredRipples = computed(() => {
 
   p {
     color: var(--white);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: -0.25px;
+    @include headingSmallVariant;
   }
 
   &.primary {
