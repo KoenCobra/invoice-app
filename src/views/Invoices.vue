@@ -6,15 +6,21 @@ import InvoicesHeader from '../components/invoices/InvoicesHeader.vue'
 <template>
   <div class="invoices">
     <InvoicesHeader />
-    <SingleInvoice />
+    <div class="invoices-list">
+      <SingleInvoice />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .invoices {
-  display: grid;
-  justify-items: center;
-  align-items: center;
+  width: 46rem;
   padding-top: 4.8rem;
+  margin-inline: auto;
+
+  .invoices-list {
+    display: grid;
+    gap: 1rem;
+  }
 }
 </style>

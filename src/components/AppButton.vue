@@ -44,7 +44,7 @@ const props = defineProps({
 
   p {
     color: var(--white);
-    @include headingSmallVariant;
+    @include headingSmall;
   }
 
   &.primary {

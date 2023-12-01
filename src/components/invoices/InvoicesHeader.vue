@@ -25,11 +25,12 @@ const { invoices } = invoiceStore
 @import '../../assets/sass/mixins.scss';
 
 .invoices-header {
-  width: 46rem;
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 2rem;
   align-items: center;
+  width: 100%;
+  margin-bottom: 4rem;
 
   h1 {
     @include headingLarge;
@@ -37,7 +38,7 @@ const { invoices } = invoiceStore
   }
 
   p {
-    @include bodyVariant;
+    @include body;
     color: var(--gray);
   }
 }

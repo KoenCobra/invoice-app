@@ -58,7 +58,7 @@ onUnmounted(() => {
   position: relative;
   button {
     p {
-      @include headingSmallVariant;
+      @include headingSmall;
       color: var(--textColor);
     }
     display: flex;
@@ -92,7 +92,7 @@ onUnmounted(() => {
       color: var(--textColor);
 
       label {
-        @include headingSmallVariant;
+        @include headingSmall;
       }
     }
   }

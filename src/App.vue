@@ -27,6 +27,7 @@ main {
     height: 100vh;
     height: 100svh;
     overflow-y: auto;
+    padding-bottom: 4rem;
   }
 }
 </style>
