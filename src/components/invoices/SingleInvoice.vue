@@ -16,11 +16,16 @@ const formatDueDate = (dateString: string) => {
 
 <template>
   <div class="invoice" v-for="invoice in invoices" :key="invoice.id">
-    <div class="id">#{{ invoice.id }}</div>
+    <div class="id"><span>#</span>{{ invoice.id }}</div>
     <div class="date">{{ formatDueDate(invoice.createdAt) }}</div>
     <div class="name">{{ invoice.clientName }}</div>
     <div class="amount">£ {{ invoice.total.toLocaleString('en-EN') }}</div>
-    <div class="status">{{ invoice.status }}</div>
+    <div class="status" :class="invoice.status">
+      <span>
+        <div class="dot"></div>
+        {{ invoice.status }}</span
+      >
+    </div>
     <img src="/assets/icon-arrow-right.svg" alt="right-arrow" />
   </div>
 </template>
@@ -43,17 +48,82 @@ const formatDueDate = (dateString: string) => {
 
   .id {
     @include headingSmall;
-    color: var(--black);
+    color: var(--textColor);
+
+    span {
+      color: var(--grayishBlue);
+    }
   }
   .date {
     @include body;
     color: var(--grayishBlue);
   }
+
+  .name {
+    @include body;
+    color: var(--grayishBlue);
+  }
+
   .amount {
     justify-self: end;
+    color: var(--textColor);
+    @include headingSmall;
   }
+
   .status {
     justify-self: center;
+    @include headingSmall;
+    border-radius: 6px;
+    width: 104px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    text-transform: capitalize;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+
+    &.paid {
+      background-color: rgba(#33d69f, 0.06);
+      span {
+        color: var(--paid);
+
+        .dot {
+          background-color: var(--paid);
+        }
+      }
+    }
+
+    &.pending {
+      background-color: rgba(#ff8f00, 0.06);
+      span {
+        color: var(--pending);
+
+        .dot {
+          background-color: var(--pending);
+        }
+      }
+    }
+
+    &.draft {
+      background-color: var(--draftBackground);
+      span {
+        color: var(--draft);
+
+        .dot {
+          background-color: var(--draft);
+        }
+      }
+    }
   }
 }
 </style>

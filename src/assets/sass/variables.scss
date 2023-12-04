@@ -21,6 +21,10 @@ $font: 'League Spartan', sans-serif;
   --sidebar-bg: var(--veryDarkBlue);
   --theme-switcher: url('/assets/icon-moon.svg');
   --background: white;
+  --paid: #33d69f;
+  --pending: #ff8f00;
+  --draft: #373b53;
+  --draftBackground: rgba(55, 59, 83, 0.06);
 }
 
 .p-checkbox .p-checkbox-box {
@@ -37,6 +41,8 @@ $font: 'League Spartan', sans-serif;
   --background: var(--darkGrayishBlue);
   --textColor: var(--white);
   --theme-switcher: url('/assets/icon-sun.svg');
+  --draft: var(--white);
+  --draftBackground: rgba(223, 227, 250, 0.06);
 
   .p-checkbox .p-checkbox-box {
     background: var(--lightBlack) !important;
