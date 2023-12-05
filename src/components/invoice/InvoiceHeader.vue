@@ -29,7 +29,7 @@ const props = defineProps({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
   background-color: var(--background);
   padding: 1.25rem 2rem;

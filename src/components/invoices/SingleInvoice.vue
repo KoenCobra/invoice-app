@@ -1,18 +1,10 @@
 <script lang="ts" setup>
 import { useInvoiceStore } from '@/stores/invoice'
 import Status from '../Status.vue'
+import { formatDueDate } from '@/utils/date'
 
 const invoiceStore = useInvoiceStore()
 const { invoices } = invoiceStore
-
-const formatDueDate = (dateString: string) => {
-  const date = new Date(dateString)
-  const options = { month: 'short', day: 'numeric', year: 'numeric' }
-  let formattedDate = date.toLocaleDateString('en-US', options as any)
-
-  const [month, day, year] = formattedDate.split(' ')
-  return `Due ${day.padStart(2, '0')} ${month} ${year}`
-}
 </script>
 
 <template>

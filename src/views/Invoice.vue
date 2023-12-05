@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import BackButton from '@/components/BackButton.vue'
+import InvoiceDetails from '@/components/invoice/InvoiceDetails.vue'
 import InvoiceHeader from '@/components/invoice/InvoiceHeader.vue'
 import { useInvoiceStore } from '@/stores/invoice'
 import { useRoute } from 'vue-router'
@@ -16,6 +17,7 @@ const invoice = invoices.find((invoice) => invoice.id === id)
   <div class="invoice-page">
     <BackButton />
     <InvoiceHeader :status="invoice?.status" />
+    <InvoiceDetails :invoice="invoice" />
   </div>
 </template>
 
