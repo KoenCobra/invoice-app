@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { formatDueDate } from '@/utils/date'
+import ItemTable from './ItemTable.vue'
 
 const props = defineProps({
   invoice: Object
@@ -44,6 +45,7 @@ const props = defineProps({
         <span>{{ invoice.clientEmail }}</span>
       </div>
     </div>
+    <ItemTable v-if="invoice" :invoice="invoice" />
   </div>
 </template>
 
@@ -101,6 +103,10 @@ const props = defineProps({
       @include headingSmall;
       padding-block: 0.5rem;
     }
+  }
+
+  .sent-to p {
+    padding-bottom: 0.4rem;
   }
 }
 </style>

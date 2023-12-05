@@ -14,7 +14,8 @@ $font: 'League Spartan', sans-serif;
   --lightBlack: #141625;
   --white: #f8f8fb;
   --red: #ec5757;
-  --editBtnBackground: #f9fafe;
+  --lightGrey: #f9fafe;
+  --editBtnBackground: var(--lightGrey);
   --lightRed: #ff9797;
   --dividerColor: #494e6e;
   --bodyBackground: var(--white);
@@ -26,6 +27,7 @@ $font: 'League Spartan', sans-serif;
   --pending: #ff8f00;
   --draft: #373b53;
   --draftBackground: rgba(55, 59, 83, 0.06);
+  --totalAmount: #373b53;
 }
 
 .p-checkbox .p-checkbox-box {
@@ -38,6 +40,7 @@ $font: 'League Spartan', sans-serif;
 }
 
 .dark {
+  --totalAmount: var(--black);
   --editBtnBackground: var(--darkGrayishBlue);
   --bodyBackground: var(--lightBlack);
   --background: var(--veryDarkBlue);
