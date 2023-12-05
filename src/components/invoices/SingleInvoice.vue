@@ -30,7 +30,7 @@ const { invoices } = invoiceStore
 .invoice {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+  grid-template-columns: repeat(5, 1fr) auto;
   padding: 1rem 2rem;
   align-items: center;
   gap: 1rem;

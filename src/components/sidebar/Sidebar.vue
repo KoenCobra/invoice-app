@@ -25,6 +25,7 @@ import Divider from './Divider.vue'
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0px 20px 20px 0px;
+  z-index: 9;
 
   .user-settings {
     display: flex;

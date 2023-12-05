@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import Sidebar from './components/sidebar/Sidebar.vue'
 import { useInvoiceStore } from './stores/invoice'
+import CreateEditInvoice from './components/CreateEditInvoice.vue'
 
 const invoiceStore = useInvoiceStore()
 
@@ -15,6 +16,7 @@ onMounted(async () => {
     <Sidebar />
     <div class="page">
       <RouterView />
+      <CreateEditInvoice />
     </div>
   </main>
 </template>

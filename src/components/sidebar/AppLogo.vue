@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="logo">
+  <div @click="$router.push('/')" class="logo">
     <img class="logo-img" src="/assets/logo.svg" alt="logo" />
     <img class="logo-back" src="/assets/logo-background.svg" alt="logo-back" />
   </div>
@@ -14,6 +14,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   width: 103px;
+  cursor: pointer;
 
   .logo-img {
     grid-column: 1;
