@@ -41,6 +41,7 @@ const props = defineProps({
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: all 0.2 s ease-in-out;
 
   p {
     color: var(--white);
@@ -49,10 +50,27 @@ const props = defineProps({
 
   &.primary {
     background-color: var(--mainPurple);
+    &:hover {
+      background-color: var(--lightPurple);
+    }
   }
 
   &.red {
     background-color: var(--red);
+    &:hover {
+      background-color: var(--lightRed);
+    }
+  }
+
+  &.edit {
+    background-color: var(--editBtnBackground);
+    p {
+      color: var(--grayishBlue) !important;
+    }
+
+    &:hover {
+      background-color: var(--lightGrayishBlue);
+    }
   }
 
   .plus-icon {

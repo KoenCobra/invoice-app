@@ -6,7 +6,7 @@ export const useInvoiceStore = defineStore('invoice', () => {
   const invoices = ref<Invoice[]>([])
 
   const getInvoices = async () => {
-    invoices.value = await (await axios.get('/data.json')).data
+    invoices.value = (await axios.get('/data.json')).data
   }
 
   return {

@@ -14,6 +14,7 @@ $font: 'League Spartan', sans-serif;
   --lightBlack: #141625;
   --white: #f8f8fb;
   --red: #ec5757;
+  --editBtnBackground: #f9fafe;
   --lightRed: #ff9797;
   --dividerColor: #494e6e;
   --bodyBackground: var(--white);
@@ -37,8 +38,9 @@ $font: 'League Spartan', sans-serif;
 }
 
 .dark {
+  --editBtnBackground: var(--darkGrayishBlue);
   --bodyBackground: var(--lightBlack);
-  --background: var(--darkGrayishBlue);
+  --background: var(--veryDarkBlue);
   --textColor: var(--white);
   --theme-switcher: url('/assets/icon-sun.svg');
   --draft: var(--white);
