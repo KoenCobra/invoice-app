@@ -75,3 +75,18 @@ textarea,
 select {
   font: inherit;
 }
+
+@media (min-width: 1150px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    background: darken(#dfe3fa, 5%);
+  }
+}
