@@ -1,11 +1,14 @@
 <script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
+import { storeToRefs } from 'pinia'
 import Checkbox from 'primevue/checkbox'
 import { onMounted, onUnmounted, ref } from 'vue'
 
-const status = ref()
 const isDropdownVisible = ref(false)
 const dropdownToggleBtn = ref()
 const dropdown = ref()
+const invoiceStore = useInvoiceStore()
+const { status } = storeToRefs(invoiceStore)
 
 const handleClickOutside = (event: any) => {
   if (
@@ -43,7 +46,13 @@ onUnmounted(() => {
 
     <div :class="{ show: isDropdownVisible }" ref="dropdown" class="dropdown">
       <div class="dropdown-item" v-for="(item, index) in ['Draft', 'Pending', 'Paid']" :key="index">
-        <Checkbox v-model="status" :id="'status-' + item" :name="item" :value="item" />
+        <Checkbox
+          v-model="status"
+          :id="'status-' + item"
+          :name="item"
+          :value="item.toLowerCase()"
+          @change="invoiceStore.filterInvoices()"
+        />
         <label :for="'status-' + item">{{ item }}</label>
       </div>
     </div>

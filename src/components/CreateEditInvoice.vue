@@ -49,6 +49,7 @@ console.log(title.value)
   overflow: auto;
   transform: translateX(-1500px);
   transition: all 0.3s ease-out;
+  border-radius: 0px 20px 20px 0px;
 
   &.open {
     transform: translateX(0);
