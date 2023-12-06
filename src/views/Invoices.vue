@@ -2,9 +2,10 @@
 import SingleInvoice from '@/components/invoices/SingleInvoice.vue'
 import InvoicesHeader from '../components/invoices/InvoicesHeader.vue'
 import { useInvoiceStore } from '@/stores/invoice'
+import { storeToRefs } from 'pinia'
 
 const invoiceStore = useInvoiceStore()
-const { invoices } = invoiceStore
+const { invoices } = storeToRefs(invoiceStore)
 </script>
 
 <template>

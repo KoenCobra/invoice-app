@@ -1,8 +1,13 @@
 <script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const invoiceStore = useInvoiceStore()
+
+const { isCreateEditVisible } = storeToRefs(invoiceStore)
 
 const title = computed(() => {
   return route.params.id
@@ -12,9 +17,9 @@ console.log(title.value)
 </script>
 
 <template>
-  <div class="overlay"></div>
-  <div class="create-edit-invoice">
-    <div class="create-edit-container">
+  <div v-if="isCreateEditVisible" class="create-edit-container">
+    <div class="overlay"></div>
+    <div class="create-edit-invoice">
       <h2>New Invoice</h2>
     </div>
   </div>
@@ -38,10 +43,9 @@ console.log(title.value)
   width: 720px;
   background-color: var(--createBackground);
   z-index: 4;
-  .create-edit-container {
-    padding: 3.5rem;
-    overflow: scroll;
-  }
+  padding: 3.5rem;
+  overflow: scroll;
+
   &::before {
     content: '';
     position: absolute;

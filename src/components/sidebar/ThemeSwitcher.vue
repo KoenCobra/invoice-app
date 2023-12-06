@@ -2,11 +2,10 @@
 import { useThemeStore } from '@/stores/theme'
 
 const themeStore = useThemeStore()
-const { toggleTheme } = themeStore
 </script>
 
 <template>
-  <button @click="toggleTheme">
+  <button @click="themeStore.toggleTheme">
     <div class="theme-switcher"></div>
   </button>
 </template>

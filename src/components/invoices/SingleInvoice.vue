@@ -2,9 +2,10 @@
 import { useInvoiceStore } from '@/stores/invoice'
 import Status from '../Status.vue'
 import { formatDueDate } from '@/utils/date'
+import { storeToRefs } from 'pinia'
 
 const invoiceStore = useInvoiceStore()
-const { invoices } = invoiceStore
+const { invoices } = storeToRefs(invoiceStore)
 </script>
 
 <template>

@@ -3,14 +3,19 @@ import BackButton from '@/components/BackButton.vue'
 import InvoiceDetails from '@/components/invoice/InvoiceDetails.vue'
 import InvoiceHeader from '@/components/invoice/InvoiceHeader.vue'
 import { useInvoiceStore } from '@/stores/invoice'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const invoiceStore = useInvoiceStore()
-const { invoices } = invoiceStore
+const { invoice } = storeToRefs(invoiceStore)
 
-const id = route.params.id
-const invoice = invoices.find((invoice) => invoice.id === id)
+const id = route.params.id as string
+
+onMounted(() => {
+  invoiceStore.getInvoice(id)
+})
 </script>
 
 <template>

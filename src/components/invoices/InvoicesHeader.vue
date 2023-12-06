@@ -2,9 +2,10 @@
 import { useInvoiceStore } from '@/stores/invoice'
 import AppButton from '../AppButton.vue'
 import FilterDropdown from '../FilterDropdown.vue'
+import { storeToRefs } from 'pinia'
 
 const invoiceStore = useInvoiceStore()
-const { invoices } = invoiceStore
+const { invoices, isCreateEditVisible } = storeToRefs(invoiceStore)
 </script>
 
 <template>
@@ -16,7 +17,12 @@ const { invoices } = invoiceStore
     <div class="filter-dropdown">
       <FilterDropdown />
     </div>
-    <AppButton cssClass="primary" text="New Invoice" :isIcon="true" />
+    <AppButton
+      @click="isCreateEditVisible = true"
+      cssClass="primary"
+      text="New Invoice"
+      :isIcon="true"
+    />
   </div>
 </template>
 
