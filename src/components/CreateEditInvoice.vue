@@ -17,11 +17,11 @@ console.log(title.value)
 </script>
 
 <template>
-  <div v-if="isCreateEditVisible" class="create-edit-container">
-    <div class="overlay"></div>
-    <div class="create-edit-invoice">
-      <h2>New Invoice</h2>
-    </div>
+  <Transition>
+    <div @click="isCreateEditVisible = false" v-if="isCreateEditVisible" class="overlay"></div>
+  </Transition>
+  <div class="create-edit-invoice" :class="{ open: isCreateEditVisible }">
+    <h2>New Invoice</h2>
   </div>
 </template>
 
@@ -37,23 +37,31 @@ console.log(title.value)
 }
 
 .create-edit-invoice {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
   width: 720px;
   background-color: var(--createBackground);
   z-index: 4;
   padding: 3.5rem;
-  overflow: scroll;
+  padding-left: 9rem;
+  overflow: auto;
+  transform: translateX(-1500px);
+  transition: all 0.3s ease-out;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    background-color: red;
-    transform: translateX(-100px);
+  &.open {
+    transform: translateX(0);
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

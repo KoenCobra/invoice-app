@@ -1,7 +1,20 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+
+const invoiceStore = useInvoiceStore()
+const { isCreateEditVisible } = storeToRefs(invoiceStore)
+const router = useRouter()
+
+const logoClick = () => {
+  isCreateEditVisible.value = false
+  router.push('/')
+}
+</script>
 
 <template>
-  <div @click="$router.push('/')" class="logo">
+  <div @click="logoClick" class="logo">
     <img class="logo-img" src="/assets/logo.svg" alt="logo" />
     <img class="logo-back" src="/assets/logo-background.svg" alt="logo-back" />
   </div>
