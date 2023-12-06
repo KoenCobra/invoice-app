@@ -28,7 +28,7 @@ main {
   .page {
     height: 100vh;
     height: 100svh;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding-bottom: 4rem;
   }
 }

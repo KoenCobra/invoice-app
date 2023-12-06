@@ -9,7 +9,7 @@ const { invoices } = storeToRefs(invoiceStore)
 </script>
 
 <template>
-  <div class="invoices">
+  <div v-if="invoices.length" class="invoices">
     <InvoicesHeader />
     <div class="invoices-list">
       <div v-if="!invoices.length" class="empty">

@@ -13,15 +13,16 @@ export const useInvoiceStore = defineStore('invoice', () => {
   }
 
   const getInvoice = (id: string) => {
-    invoice.value = invoices.value.find((invoice) => invoice.id === id)
+    invoice.value = invoices.value.find((invoice) => invoice?.id === id)
   }
 
   const filterInvoices = async () => {
     await getInvoices()
     if (status.value && status.value.length > 0) {
-      invoices.value = invoices.value.filter((invoice) => status.value.includes(invoice.status))
+      invoices.value = invoices.value.filter((invoice) => status.value.includes(invoice?.status))
     }
   }
+
   return {
     invoices,
     invoice,

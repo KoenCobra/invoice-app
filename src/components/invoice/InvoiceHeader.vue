@@ -1,10 +1,15 @@
 <script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
 import AppButton from '../AppButton.vue'
 import Status from '../Status.vue'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps({
   status: String
 })
+
+const invoiceStore = useInvoiceStore()
+const { isCreateEditVisible } = storeToRefs(invoiceStore)
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const props = defineProps({
       <Status :status="props.status" />
     </div>
     <div class="actions">
-      <AppButton cssClass="edit" text="Edit" />
+      <AppButton @click="isCreateEditVisible = true" cssClass="edit" text="Edit" />
       <AppButton cssClass="red" text="Delete" />
       <AppButton cssClass="primary" text="Mark as Paid" />
     </div>

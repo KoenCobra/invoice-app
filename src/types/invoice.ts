@@ -25,4 +25,4 @@ export type Invoice = {
   clientAddress: Address
   items: Item[]
   total: number
-}
+} | null

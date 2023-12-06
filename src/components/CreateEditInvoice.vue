@@ -1,19 +1,10 @@
 <script lang="ts" setup>
 import { useInvoiceStore } from '@/stores/invoice'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
 const invoiceStore = useInvoiceStore()
 
-const { isCreateEditVisible } = storeToRefs(invoiceStore)
-
-const title = computed(() => {
-  return route.params.id
-})
-
-console.log(title.value)
+const { isCreateEditVisible, invoice } = storeToRefs(invoiceStore)
 </script>
 
 <template>
@@ -21,7 +12,7 @@ console.log(title.value)
     <div @click="isCreateEditVisible = false" v-if="isCreateEditVisible" class="overlay"></div>
   </Transition>
   <div class="create-edit-invoice" :class="{ open: isCreateEditVisible }">
-    <h2>New Invoice</h2>
+    <h2>{{ invoice ? 'Edit Invoice' : 'New Invoice' }}</h2>
   </div>
 </template>
 

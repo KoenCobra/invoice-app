@@ -1,12 +1,26 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useInvoiceStore } from '@/stores/invoice'
+import type { Invoice } from '@/types/invoice'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const invoiceStore = useInvoiceStore()
+const { invoice } = storeToRefs(invoiceStore)
+
+const toHome = () => {
+  invoice.value = null
+  router.push('/')
+}
+</script>
 
 <template>
-  <RouterLink to="/">
+  <button @click="toHome">
     <div class="back-btn">
       <img src="/assets/icon-arrow-left.svg" alt="back" />
       <p>Go Back</p>
     </div>
-  </RouterLink>
+  </button>
 </template>
 
 <style lang="scss" scoped>
