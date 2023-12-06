@@ -34,5 +34,17 @@ onMounted(() => {
   width: 46rem;
   padding-top: 4rem;
   margin-inline: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>
